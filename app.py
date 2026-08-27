@@ -13,6 +13,7 @@ from PySide6.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
 from shortcut import register_hotkey
 from selector import select_region
 from screenshot import capture_region
+from ocr import recognize
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -119,6 +120,14 @@ def _handle_hotkey() -> None:
         logger.exception("capture_region failed")
         return
     _show_preview(screenshot)
+    try:
+        text = recognize(screenshot)
+        if text:
+            logger.info("OCR result:\n%s", text)
+        else:
+            logger.info("OCR result: <empty>")
+    except Exception:
+        logger.exception("OCR failed")
 
 
 def main() -> None:
