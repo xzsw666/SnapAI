@@ -123,7 +123,13 @@ def _handle_hotkey() -> None:
     try:
         text = recognize(screenshot)
         if text:
-            logger.info("OCR result:\n%s", text)
+            logger.info("OCR result: %d characters", len(text))
+            try:
+                clipboard = QApplication.clipboard()
+                clipboard.setText(text)
+                logger.info("OCR result copied to clipboard: %d characters", len(text))
+            except Exception:
+                logger.exception("Failed to copy OCR result to clipboard")
         else:
             logger.info("OCR result: <empty>")
     except Exception:
