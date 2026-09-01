@@ -1,6 +1,6 @@
-"""SnapAI application entry point.
+"""SnapAI v0.1 entry point -- coordinates the full capture pipeline.
 
-Phase 4: Integrate screenshot module.
+Ctrl+Shift+X -> selector.py -> screenshot.py -> ocr.py -> clipboard
 """
 
 import logging

@@ -1,7 +1,6 @@
 PySide6
 keyboard
 mss
-python-dotenv
 winrt-runtime
 winrt-Windows.Media.Ocr
 winrt-Windows.Graphics.Imaging

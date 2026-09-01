@@ -137,7 +137,7 @@ def recognize(screenshot) -> str:
 
     if text:
         logger.info("OCR completed: text_length=%d", len(text))
-        logger.info("OCR result:\n%s", text)
+        logger.debug("OCR result:\n%s", text)
     else:
         logger.info("OCR result: <empty>")
 
